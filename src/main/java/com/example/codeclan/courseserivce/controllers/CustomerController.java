@@ -19,10 +19,10 @@ public class CustomerController {
 
     @GetMapping(value="/customers")
     public ResponseEntity<List<Customer>> getAllCustomers(
-            @RequestParam(name="booking", required = false) Long booking,
             @RequestParam(name="course", required = false) String course
     ) {
 
+        // Get all customer on a specific course.
         if (course != null) {
             List<Customer> allCustomersOnCourse = customerRepository.findByBookingsCourseName(course);
             return new ResponseEntity<>(allCustomersOnCourse, HttpStatus.OK);
