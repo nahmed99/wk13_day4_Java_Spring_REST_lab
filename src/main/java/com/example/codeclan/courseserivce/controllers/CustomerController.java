@@ -24,7 +24,7 @@ public class CustomerController {
 
         // Get all customer on a specific course.
         if (course != null) {
-            List<Customer> allCustomersOnCourse = customerRepository.findByBookingsCourseName(course);
+            List<Customer> allCustomersOnCourse = customerRepository.findByBookingsCourseNameIgnoreCase(course);
             return new ResponseEntity<>(allCustomersOnCourse, HttpStatus.OK);
         }
 

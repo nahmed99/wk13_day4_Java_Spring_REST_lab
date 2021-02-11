@@ -29,7 +29,7 @@ public class CourseController {
         }
 
         if (customer != null) {
-            List<Course> allCoursesForCustomer = courseRepository.findByBookingsCustomerName(customer);
+            List<Course> allCoursesForCustomer = courseRepository.findByBookingsCustomerNameIgnoreCase(customer);
             return new ResponseEntity<>(allCoursesForCustomer, HttpStatus.OK);
         }
 
